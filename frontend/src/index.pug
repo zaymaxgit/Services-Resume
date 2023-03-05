@@ -6,4 +6,14 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Document
     body 
-        h1 ZAYMAX
+        header 
+            h1.logo ZAYMAX 
+        main.container
+            .seq 
+            .form 
+                form.postCreate
+                    include ./include/bio.pug
+                    include ./include/connect.pug
+                    include ./include/job.pug
+                    button#jobCreate(type="button") Job +
+                    

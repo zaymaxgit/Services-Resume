@@ -9,6 +9,7 @@ def randName(l=5):
 
 
 def start(context):
+    print(context)
     doc = DocxTemplate("./Pattern/Resume.docx")
     doc.render(context)
     name = randName(6)

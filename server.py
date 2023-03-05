@@ -1,14 +1,23 @@
 from fastapi import FastAPI, Body
+from fastapi.middleware.cors import CORSMiddleware
 import devResume
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
 
 @app.post("/")
-async def home(data=Body()):
+def home(data=Body()):
 
     res = devResume.start(data)
     return {"msg": "Gut", "data": data, "name": res}
 
 
-"uvicorn server:app --reload --host 0.0.0.0 --port 3033"
+"uvicorn server:app --reload --host 127.0.0.1 --port 3033"
